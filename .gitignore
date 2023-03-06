@@ -1,0 +1,5 @@
+# vagrant runtime directory
+.vagrant/
+
+# VSC configuration settings for workspace
+.vscode/
