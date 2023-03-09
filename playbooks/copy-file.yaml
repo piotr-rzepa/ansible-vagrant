@@ -1,0 +1,12 @@
+---
+- name: Copy file(s) from controller to remote client(s)
+  hosts: all
+  tasks:
+  - name: Copying file
+    become: true
+    ansible.builtin.copy:
+      src: ../README.md
+      dest: /home/vagrant/README.md
+      owner: vagrant
+      group: vagrant
+      mode: 0644

@@ -1,0 +1,15 @@
+---
+- name: Killing process of given ID Playbook
+  hosts: all
+  become: true
+  tasks:
+  - name: Get running processes from remote host(s)
+    ignore_errors: true
+    ansible.builtin.shell: "ps -few | grep top | awk '{print $2}'"
+    register: running_process
+
+  - name: Kill running process
+    ignore_errors: true
+    ansible.builtin.shell: "kill {{ item }}"
+    with_items:
+    - "{{ running_process.stdout_lines }}"

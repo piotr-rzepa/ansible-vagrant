@@ -1,0 +1,8 @@
+---
+- name: Change file permissions
+  hosts: all
+  tasks:
+  - name: Change file permissions
+    ansible.builtin.file:
+      path: /home/vagrant/README.md
+      mode: a+wx

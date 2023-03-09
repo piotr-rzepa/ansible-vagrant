@@ -1,0 +1,22 @@
+---
+- name: Execute shell script on remote client(s)
+  hosts: all
+  become: true
+  tasks:
+  - name: Copy script to the remote client(s)
+    ansible.builtin.copy:
+      src: ../scripts/remote-client-script.sh
+      dest: /home/vagrant/client-script.sh
+      owner: vagrant
+      group: vagrant
+      mode: 0770
+
+  - name: Run shell script
+    ansible.builtin.shell: /home/vagrant/client-script.sh
+
+  - name: Display saved context of remote script
+    ansible.builtin.command: cat /home/vagrant/all_users.txt
+    register: cat_output
+
+  - ansible.builtin.debug:
+      var: cat_output.stdout_lines
