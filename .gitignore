@@ -3,3 +3,6 @@
 
 # VSC configuration settings for workspace
 .vscode/
+
+inventory/*
+!inventory/*.example

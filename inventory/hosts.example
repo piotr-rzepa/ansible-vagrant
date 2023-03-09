@@ -1,0 +1,3 @@
+[clients]
+client1 ansible_ssh_host=<Vagrant VM1 ip addr> ansible_user=vagrant ansible_ssh_private_key_file=~/.ssh/id_rsa
+client2 ansible_ssh_host=<Vagrant VM2 ip addr> ansible_user=vagrant ansible_ssh_private_key_file=~/.ssh/id_rsa
