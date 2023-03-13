@@ -1,0 +1,21 @@
+---
+- name: Download Tomcat from remote URL
+  hosts: all
+  become: true
+  tasks:
+  - name: Create directory for Tomcat
+    ansible.builtin.file:
+      path: /opt/tomcat
+      state: directory
+      mode: 0755
+      owner: root
+      group: root
+
+  - name: Download Tomcat
+    ansible.builtin.get_url:
+      url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.73/bin/apache-tomcat-9.0.73.tar.gz
+      validate_certs: false
+      dest: /opt/tomcat
+      mode: 0755
+      group: vagrant
+      owner: vagrant

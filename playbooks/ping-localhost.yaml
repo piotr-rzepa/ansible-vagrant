@@ -1,0 +1,6 @@
+---
+- name: My first playbook - localhost
+  hosts: localhost
+  tasks:
+  - name: test connectivity
+    ansible.builtin.ping:

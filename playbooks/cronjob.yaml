@@ -1,0 +1,24 @@
+---
+- name: Create simple cron job
+  hosts: all
+  tasks:
+  - name: Copy cron script to remote client(s)
+    ansible.builtin.copy:
+      src: "../scripts/remote-client-script.sh"
+      dest: "/home/vagrant/display-users.sh"
+      owner: vagrant
+      group: vagrant
+      mode: ug+x
+
+  - name: Schedule cron
+    ansible.builtin.cron:
+      name: >
+        Displays of all users on the machine to text file
+        Cron Job scheduled by Ansible
+      minute: "0"
+      hour: "1"
+      day: "*"
+      month: "*"
+      weekday: "*"
+      user: vagrant
+      job: "/home/vagrant/display-users.sh"

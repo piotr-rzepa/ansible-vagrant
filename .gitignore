@@ -3,3 +3,7 @@
 
 # VSC configuration settings for workspace
 .vscode/
+
+# Actual inventory file(s)
+inventory/*
+!inventory/*.example

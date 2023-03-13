@@ -1,0 +1,6 @@
+---
+- name: Check clients connectivity- remote
+  hosts: all
+  tasks:
+  - name: test connectivity
+    ansible.builtin.ping:
